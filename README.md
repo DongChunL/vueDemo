@@ -1,4 +1,4 @@
-# my_vue_demo01
+# my_vue_demo
 
 > A Vue.js project
 
