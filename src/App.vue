@@ -2,7 +2,7 @@
     <div id="root">
         <div class="todo-container">
             <div class="todo-wrap">
-                <TodoHeader/>
+                <TodoHeader :addPlan="addPlan"/>
                 <TodoList :todos="todos"/>
                 <TodoFooter/>
             </div>
@@ -23,13 +23,18 @@
                     {title: "coding",complete: false}
                 ]
             }
-    },
+        },
         components:{
             TodoHeader,
             TodoList,
             TodoFooter
-        }
-
+        },
+        methods: {
+            addPlan(todo){
+                const todos = this.todos;
+                todos.unshift(todo);
+            }
+    }
     }
 </script>
 
