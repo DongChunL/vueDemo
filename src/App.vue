@@ -1,54 +1,47 @@
 <template>
-    <div>
-        <header class="site-header jumbotron">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <h1>请发表对Vue的评论</h1>
-                    </div>
-                </div>
+    <div id="root">
+        <div class="todo-container">
+            <div class="todo-wrap">
+                <TodoHeader/>
+                <TodoList :todos="todos"/>
+                <TodoFooter/>
             </div>
-        </header>
-        <div class="container">
-            <Add/>
-            <List :comments="comments"/>
         </div>
     </div>
 </template>
 
 <script>
-    import Add from './components/Add.vue'
-    import List from './components/List.vue'
-
+    import TodoHeader from './componentes/TodoHeader.vue'
+    import TodoList from './componentes/TodoList.vue'
+    import TodoFooter from './componentes/TodoFooter.vue'
     export default {
-        name: "App",
-        components:{
-            Add,
-            List
-        },
-        data(){
+        data() {
             return {
-                comments: [
-                    {
-                        name:'BOB',
-                        content:'Vue你好'
-                    },
-                    {
-                        name:'丁淑玉',
-                        content:'Vue你好哈'
-                    },
-                    {
-                        name:'凯文',
-                        content:'Vue你好哦'
-                    },
+                todos: [
+                    {title: "吃饭",complete:false},
+                    {title: "睡觉",complete: true},
+                    {title: "coding",complete: false}
                 ]
             }
+    },
+        components:{
+            TodoHeader,
+            TodoList,
+            TodoFooter
         }
+
     }
 </script>
 
 <style scoped>
-    .reply {
-        margin-top: 0px;
+    /*app*/
+    .todo-container {
+        width: 600px;
+        margin: 0 auto;
+    }
+    .todo-container .todo-wrap {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
     }
 </style>
